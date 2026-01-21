@@ -22,9 +22,7 @@ public class UserService (IUserRepository _repository) : IUserService
 
         await _repository.CreateAsync(user);
 
-        UserAddResponseDTO userMapper = user.ToUserBasicDTO();
-
-        return userMapper;
+        return user.ToUserBasicDTO();
     }
 
     public async Task<bool> EmailExists(string email)

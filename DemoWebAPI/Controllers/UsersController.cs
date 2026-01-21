@@ -27,7 +27,7 @@ public class UsersController (IUserService _service) : ControllerBase
         if (emailExists)
             return BadRequest(new { message = "L'email est déjà prise." });
 
-        var user = _service.AddUserAsync(dto);
+        var user = await _service.AddUserAsync(dto);
 
         return Ok(user);
     }
